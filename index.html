@@ -80,7 +80,7 @@
   .q-term-big { font-size: 28px; font-weight: 500; color: var(--text); margin-bottom: 4px; }
   .q-lang { font-size: 13px; color: var(--text3); margin-bottom: 1.5rem; }
   .mc-options { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-  .mc-opt { padding: 14px 16px; border: 0.5px solid var(--border2); border-radius: var(--radius); cursor: pointer; font-size: 14px; color: var(--text); background: var(--bg); text-align: left; transition: border-color 0.15s, background 0.15s; line-height: 1.4; }
+  .mc-opt { padding: 14px 16px; border: 0.5px solid var(--border2); border-radius: var(--radius); cursor: pointer; font-size: 14px; color: var(--text); background: var(--bg); text-align: left; transition: all 0.15s; }
   .mc-opt:hover:not(:disabled) { background: var(--bg2); }
   .mc-opt.correct { border-color: var(--border-success); background: var(--bg-success); color: var(--text-success); }
   .mc-opt.wrong { border-color: var(--border-danger); background: var(--bg-danger); color: var(--text-danger); }
@@ -91,9 +91,9 @@
   .feedback-row { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-radius: var(--radius); margin-top: 8px; font-size: 14px; }
   .feedback-row.correct { background: var(--bg-success); color: var(--text-success); }
   .feedback-row.wrong { background: var(--bg-danger); color: var(--text-danger); }
-  .continue-btn { width: 100%; padding: 12px; background: transparent; border: 0.5px solid var(--border2); border-radius: var(--radius); font-size: 15px; font-weight: 500; cursor: pointer; color: var(--text); margin-top: 1rem; font-family: inherit; transition: background 0.15s; }
+  .continue-btn { width: 100%; padding: 12px; background: transparent; border: 0.5px solid var(--border2); border-radius: var(--radius); font-size: 15px; font-weight: 500; cursor: pointer; color: var(--text); transition: all 0.15s; }
   .continue-btn:hover { background: var(--bg2); }
-  .submit-btn-sm { padding: 10px 24px; background: transparent; border: 0.5px solid var(--border2); border-radius: var(--radius); font-size: 14px; font-weight: 500; cursor: pointer; color: var(--text); font-family: inherit; transition: background 0.15s; }
+  .submit-btn-sm { padding: 10px 24px; background: transparent; border: 0.5px solid var(--border2); border-radius: var(--radius); font-size: 14px; font-weight: 500; cursor: pointer; color: var(--text); font-family: inherit; transition: all 0.15s; }
   .submit-btn-sm:hover { background: var(--bg2); }
   .complete-card { background: var(--bg); border: 0.5px solid var(--border); border-radius: var(--radius-lg); padding: 2.5rem; text-align: center; }
   .complete-title { font-size: 24px; font-weight: 500; color: var(--text); margin-bottom: 8px; }
@@ -116,7 +116,7 @@
   .q-item.graded-correct { border-color: var(--border-success); }
   .q-item.graded-wrong { border-color: var(--border-danger); }
   .submit-wrap { padding-top: 1rem; }
-  .submit-btn { width: 100%; padding: 12px; background: transparent; border: 0.5px solid var(--border2); border-radius: var(--radius); font-size: 15px; font-weight: 500; cursor: pointer; color: var(--text); font-family: inherit; transition: background 0.15s; }
+  .submit-btn { width: 100%; padding: 12px; background: transparent; border: 0.5px solid var(--border2); border-radius: var(--radius); font-size: 15px; font-weight: 500; cursor: pointer; color: var(--text); font-family: inherit; transition: all 0.15s; }
   .submit-btn:hover { background: var(--bg2); }
   .results-banner { padding: 1.5rem; background: var(--bg2); border-radius: var(--radius-lg); text-align: center; margin-bottom: 1.5rem; }
   .results-score { font-size: 36px; font-weight: 500; color: var(--text); }
@@ -126,10 +126,10 @@
   .grade-b { color: var(--text-info); }
   .grade-c { color: var(--text-warning); }
   .grade-d { color: var(--text-danger); }
-  .retake-btn { padding: 9px 24px; border: 0.5px solid var(--border2); border-radius: var(--radius); background: transparent; cursor: pointer; font-size: 14px; color: var(--text); margin-top: 1rem; font-family: inherit; transition: background 0.15s; }
+  .retake-btn { padding: 9px 24px; border: 0.5px solid var(--border2); border-radius: var(--radius); background: transparent; cursor: pointer; font-size: 14px; color: var(--text); margin-top: 1rem; font-family: inherit; transition: all 0.15s; }
   .retake-btn:hover { background: var(--bg3); }
   .filter-row { display: flex; gap: 8px; margin-bottom: 1rem; flex-wrap: wrap; }
-  .filter-btn { padding: 5px 14px; border: 0.5px solid var(--border2); border-radius: 20px; background: transparent; font-size: 12px; cursor: pointer; color: var(--text2); font-family: inherit; transition: background 0.15s; }
+  .filter-btn { padding: 5px 14px; border: 0.5px solid var(--border2); border-radius: 20px; background: transparent; font-size: 12px; cursor: pointer; color: var(--text2); font-family: inherit; transition: all 0.15s; }
   .filter-btn.active { background: var(--bg2); color: var(--text); border-color: var(--border3); }
   .stats-row { display: flex; gap: 12px; margin-bottom: 1.5rem; }
   .stat { flex: 1; background: var(--bg2); border-radius: var(--radius); padding: .75rem 1rem; text-align: center; }
@@ -501,7 +501,7 @@ function renderLearnQ(){
       ${unseen>0?`<span class="chip chip-unseen">${unseen} unseen</span>`:''}
     </div>
     <div class="q-card">
-      <div class="q-type-label" style="display:flex;justify-content:space-between;align-items:center"><span>${qtype==='mc'?'Multiple choice':'Write the definition'}${currentQ.isReview?' <span style="background:var(--bg-info);color:var(--text-info);font-size:10px;padding:2px 7px;border-radius:10px;margin-left:6px;vertical-align:middle">Review</span>':''}</span><span>${streakDots}</span></div>
+      <div class="q-type-label" style="display:flex;justify-content:space-between;align-items:center"><span>${qtype==='mc'?'Multiple choice':'Write the definition'}${currentQ.isReview?' <span style="font-size:11px;color:var(--text3)">REVIEW</span>':''}</span><div>${streakDots}</div></div>
       <div class="q-stem">What is the definition of</div>
       <div class="q-term-big">${term[0]}</div>
       <div class="q-lang">${term[1]}</div>`;
@@ -511,7 +511,7 @@ function renderLearnQ(){
     opts.forEach((o,i)=>{html+=`<button class="mc-opt" id="lopt${i}" onclick="checkMC(${i},'${o[2].replace(/'/g,"\\'")}')">${o[2]}</button>`});
     html+=`</div>`;
   } else {
-    html+=`<input class="type-input" id="ltypeinp" placeholder="Type the definition…" autocomplete="off" onkeydown="if(event.key==='Enter')checkType()"><div><button class="submit-btn-sm" onclick="checkType()">Submit</button></div>`;
+    html+=`<input class="type-input" id="ltypeinp" placeholder="Type the definition…" autocomplete="off" onkeydown="if(event.key==='Enter')checkType()"><div><button class="submit-btn-sm" onclick="checkType()">Check</button></div>`;
   }
   html+=`<div id="lfeedback"></div></div>`;
   document.getElementById('learn-root').innerHTML=html;
@@ -525,7 +525,6 @@ function recordAnswer(term,correct){
     if(streaks[term[0]]>=STREAK_NEEDED){
       mastered.add(term[0]);
       activePool=activePool.filter(k=>k!==term[0]);
-      // if this term was ever wrong, schedule it for a review check later
       if(hadError[term[0]]&&!reviewQueue.includes(term[0])){
         reviewQueue.push(term[0]);
       }
@@ -561,7 +560,6 @@ function showLearnFeedback(correct,answer){
   let msg;
   if(isReview){
     msg=correct?'Still got it! ✓':'Needs more practice';
-    // if failed a review, put it back into active pool to re-learn
     if(!correct){
       mastered.delete(currentQ.term[0]);
       streaks[currentQ.term[0]]=0;
@@ -570,11 +568,11 @@ function showLearnFeedback(correct,answer){
   } else {
     msg=correct?(justMastered?'Mastered! ★':`Correct! (${streak}/${STREAK_NEEDED})`):'Incorrect';
   }
-  fb.innerHTML=`<div class="feedback-row ${correct?'correct':'wrong'}" style="margin-top:12px"><span>${msg}</span>${!correct?`<span style="margin-left:4px">Answer: <strong>${answer}</strong></span>`:''}</div><button class="continue-btn" onclick="nextQ()">Continue →</button>`;
+  fb.innerHTML=`<div class="feedback-row ${correct?'correct':'wrong'}" style="margin-top:12px"><span>${msg}</span>${!correct?`<span style="margin-left:4px">Answer: <strong>${answer}</strong></span>`:''}</div><button class="continue-btn" onclick="nextQ()">Continue</button>`;
 }
 
 function renderComplete(){
-  document.getElementById('learn-root').innerHTML=`<div class="complete-card"><div class="complete-title">All terms mastered!</div><div class="complete-sub">You got all ${TOTAL} terms correct ${STREAK_NEEDED} times in a row.</div><button class="retake-btn" onclick="restartLearn()">Start over</button></div>`;
+  document.getElementById('learn-root').innerHTML=`<div class="complete-card"><div class="complete-title">All terms mastered!</div><div class="complete-sub">You got all ${TOTAL} terms correct ${sessionCount} times over multiple sessions. Great job!</div><button class="retake-btn" onclick="restartLearn()">Restart</button></div>`;
 }
 
 function restartLearn(){initLearn()}
@@ -594,8 +592,8 @@ function renderTest(){
     const pct=Math.round((correct/N)*100);
     let grade='',gc='';
     if(pct>=90){grade='Excellent';gc='grade-a'}else if(pct>=75){grade='Good';gc='grade-b'}else if(pct>=60){grade='Needs work';gc='grade-c'}else{grade='Keep studying';gc='grade-d'}
-    html+=`<div class="results-banner"><div class="results-score">${correct} / ${N}</div><div class="results-pct">${pct}% correct</div><div class="results-grade ${gc}">${grade}</div><div><button class="retake-btn" onclick="retakeTest()">New test</button></div></div>`;
-    html+=`<div class="filter-row"><button class="filter-btn ${testFilter==='all'?'active':''}" onclick="setFilter('all')">All (${N})</button><button class="filter-btn ${testFilter==='wrong'?'active':''}" onclick="setFilter('wrong')">Incorrect</button><button class="filter-btn ${testFilter==='correct'?'active':''}" onclick="setFilter('correct')">Correct</button></div>`;
+    html+=`<div class="results-banner"><div class="results-score">${correct} / ${N}</div><div class="results-pct">${pct}% correct</div><div class="results-grade ${gc}">${grade}</div><div><button class="retake-btn" onclick="retakeTest()">Retake test</button></div></div>`;
+    html+=`<div class="filter-row"><button class="filter-btn ${testFilter==='all'?'active':''}" onclick="setFilter('all')">All (${N})</button><button class="filter-btn ${testFilter==='wrong'?'active':''}" onclick="setFilter('wrong')">Wrong (${testTerms.filter((t,i)=>!isClose(savedVals[i]||'',t[2])).length})</button></div>`;
   } else {
     html+=`<div class="test-meta"><div class="test-title">Mock test — fill in the blank</div><div class="test-sub">Write the English definition for each term · ${N} questions</div></div>`;
   }
@@ -603,7 +601,7 @@ function renderTest(){
     const val=savedVals[i]||'';
     const grade=testSubmitted?(isClose(val,t[2])?'correct':'wrong'):'';
     if(testSubmitted&&testFilter!=='all'&&grade!==testFilter)return;
-    html+=`<div class="q-item${testSubmitted?' graded-'+grade:''}"><div class="q-num">Question ${i+1} of ${N}</div><div class="q-term">${t[0]}</div><div class="q-lang">${t[1]}</div><input class="q-input${testSubmitted?' '+grade:''}" id="ti${i}" placeholder="English definition…" autocomplete="off" ${testSubmitted?'disabled':''} value="${val.replace(/"/g,'&quot;')}">`;
+    html+=`<div class="q-item${testSubmitted?' graded-'+grade:''}"><div class="q-num">Question ${i+1} of ${N}</div><div class="q-term">${t[0]}</div><div class="q-lang">${t[1]}</div><input class="q-input" type="text" id="ti${i}" value="${val}" ${testSubmitted?'disabled':''} placeholder="Type the definition…">`;
     if(testSubmitted&&grade==='wrong')html+=`<div class="q-correct-ans show">Correct answer: ${t[2]}</div>`;
     html+=`</div>`;
   });
