@@ -438,24 +438,27 @@ function isClose(inp,ans){
 
 // ── LEARN MODE ──────────────────────────────────────────────
 const TOTAL=T.length;
-let queue=[],mastered=new Set(),learning=new Set(),roundNum=1,currentQ=null,answered=false,roundTerms=[];
+let queue=[],mastered=new Set(),learning=new Set(),roundNum=1,currentQ=null,answered=false;
 
 function initRound(){
   if(mastered.size===TOTAL){renderComplete();return}
   const unseen=T.filter(t=>!mastered.has(t[0])&&!learning.has(t[0]));
   const learningArr=T.filter(t=>learning.has(t[0]));
   let pick;
-  if(roundNum===1){pick=shuffle(T).slice(0,Math.min(7,TOTAL))}
-  else{pick=[...shuffle(learningArr),...shuffle(unseen).slice(0,Math.max(0,7-learningArr.length))].slice(0,Math.max(7,learningArr.length));if(pick.length===0)pick=shuffle(unseen).slice(0,7)}
-  roundTerms=[...pick];queue=shuffle([...roundTerms]);nextQ();
+  if(roundNum===1){
+    pick=shuffle(T).slice(0,Math.min(7,TOTAL));
+  } else {
+    const fromLearning=shuffle(learningArr);
+    const fromUnseen=shuffle(unseen).slice(0,Math.max(0,7-fromLearning.length));
+    pick=[...fromLearning,...fromUnseen];
+    if(pick.length===0){mastered=new Set([...mastered,...learning]);learning=new Set();renderComplete();return}
+  }
+  queue=shuffle([...pick]);
+  nextQ();
 }
 
 function nextQ(){
-  if(queue.length===0){
-    const still=roundTerms.filter(t=>!mastered.has(t[0]));
-    if(still.length>0){queue=shuffle([...still]);nextQ();return}
-    roundNum++;initRound();return;
-  }
+  if(queue.length===0){roundNum++;initRound();return;}
   const term=queue.shift();
   const useType=mastered.size+learning.size>TOTAL*0.3||roundNum>1;
   currentQ={term,qtype:(useType&&Math.random()>0.4)?'type':'mc'};
@@ -576,6 +579,11 @@ function switchTab(tab){
   document.getElementById('test-view').classList.toggle('active',tab==='test');
   if(tab==='test'&&!testInited){testInited=true;initTest();}
 }
+
+initRound();
+</script>
+</body>
+</html>
 
 initRound();
 </script>
